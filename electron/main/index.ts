@@ -1,6 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
+import { initWindow } from './window'
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -33,8 +34,12 @@ const indexHtml = join(ROOT_PATH.dist, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
+    icon: join(ROOT_PATH.public, './favicon.ico'),
     width: 960,
     height: 640,
+    frame: false,
+    resizable: false,
+    fullscreenable: true,
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -42,6 +47,7 @@ async function createWindow() {
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       nodeIntegration: true,
       contextIsolation: false,
+      spellcheck: false,
     },
   })
 
@@ -67,6 +73,7 @@ async function createWindow() {
 
 app.whenReady().then(() => {
   createWindow()
+  initWindow(win)
 })
 
 app.on('window-all-closed', () => {

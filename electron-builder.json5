@@ -2,7 +2,8 @@
  * @see https://www.electron.build/configuration/configuration
  */
 {
-  appId: 'com.electron.template',
+  appId: 'com.electron.AMD',
+  productName: 'AMD',
   copyright: 'Copyright © 2022 ${author}',
   asar: true,
   directories: {
@@ -11,7 +12,10 @@
   compression: 'store',
   files: ['dist'],
   extraResources: [
-    "data"
+    {
+      from: './src/data',
+      to: 'data'
+    }
   ],
   dmg: {
     contents: [
