@@ -30,6 +30,7 @@ export default defineConfig({
     autoimport({
       dts: './src/type/auto-import.d.ts',
       imports: ['vue', 'vue-router'],
+      resolvers: [ElementPlusResolver()],
       eslintrc: {
         enabled: false,
         filepath: './.eslintrc-auto-import.json',
@@ -37,7 +38,7 @@ export default defineConfig({
       },
     }),
     components({
-      dts: './src/type/vue-componets.d.ts',
+      dts: './src/type/vue-components.d.ts',
       resolvers: [ElementPlusResolver()],
     }),
     compression({

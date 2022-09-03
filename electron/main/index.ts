@@ -3,6 +3,7 @@ import { release } from 'os'
 import { join } from 'path'
 import { initWindow } from './window'
 import { initTray } from './tray'
+import { initFile } from './file'
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -77,6 +78,7 @@ app.whenReady().then(() => {
   initWindow(win)
   const icon = nativeImage.createFromPath(join(ROOT_PATH.public, './AMD.png'))
   initTray(icon, win)
+  initFile(win)
 })
 
 app.on('window-all-closed', () => {

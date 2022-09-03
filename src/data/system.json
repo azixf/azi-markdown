@@ -1,1 +1,9 @@
-{ "close": "inquirer" }
+{
+  "close": "inquirer",
+  "recentFiles": [
+    "F:\\projects\\project\\blog-mgmt\\README.md",
+    "F:\\projects\\project\\blog-mgmt\\README.en.md",
+    "F:\\projects\\project\\azi-ui\\README.md",
+    "F:\\projects\\template\\electron-template\\README.md"
+  ]
+}
