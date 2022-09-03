@@ -36,7 +36,7 @@ const indexHtml = join(ROOT_PATH.dist, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
-    icon: join(ROOT_PATH.public, './favicon.ico'),
+    icon: join(ROOT_PATH.public, './AMD(1).png'),
     width: 960,
     height: 640,
     frame: false,

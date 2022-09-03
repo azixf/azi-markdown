@@ -5,5 +5,6 @@
     "F:\\projects\\project\\blog-mgmt\\README.en.md",
     "F:\\projects\\project\\azi-ui\\README.md",
     "F:\\projects\\template\\electron-template\\README.md"
-  ]
+  ],
+  "editor": { "theme": "v-green", "highlight": "devibeans" }
 }

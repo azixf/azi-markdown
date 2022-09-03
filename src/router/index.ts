@@ -3,9 +3,13 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/test',
     component: () => import('@/pages/layout/index.vue'),
     children: [
+      {
+        path: 'test',
+        component: () => import('@/pages/test/index.vue'),
+      },
       {
         path: 'home',
         component: () => import('@/pages/home/index.vue'),
