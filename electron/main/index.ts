@@ -1,7 +1,8 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, nativeImage } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
 import { initWindow } from './window'
+import { initTray } from './tray'
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -74,6 +75,8 @@ async function createWindow() {
 app.whenReady().then(() => {
   createWindow()
   initWindow(win)
+  const icon = nativeImage.createFromPath(join(ROOT_PATH.public, './AMD.png'))
+  initTray(icon, win)
 })
 
 app.on('window-all-closed', () => {

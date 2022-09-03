@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain, dialog } from 'electron'
+import { BrowserWindow, ipcMain } from 'electron'
 let win: BrowserWindow | null = null
 export const initWindow = (wind: BrowserWindow) => {
   win = wind
@@ -21,11 +21,6 @@ ipcMain.on('window-operation', (event, ...args) => {
     // 关闭窗口
     win.destroy()
   } else if (type === 'tray') {
-    console.log('tray')
-    dialog.showMessageBox(win, {
-      title: 'tray',
-      type: 'info',
-      message: 'click tray',
-    })
+    win.hide()
   }
 })

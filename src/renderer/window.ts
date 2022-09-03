@@ -13,9 +13,6 @@ export const windowOperate = (type: string) => {
 
 export const readConfigFile = (file: string) => {
   const filepath = path.resolve(dist, file)
-  const h1 = document.createElement('h1')
-  h1.innerText = process.cwd()
-  document.body.appendChild(h1)
   return new Promise((resolve, reject) => {
     fs.readFile(filepath, 'utf-8', (err, data) => {
       if (err) reject(err)
