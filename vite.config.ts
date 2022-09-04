@@ -38,6 +38,7 @@ export default defineConfig({
       },
     }),
     components({
+      dirs: [],
       dts: './src/type/vue-components.d.ts',
       resolvers: [ElementPlusResolver()],
     }),

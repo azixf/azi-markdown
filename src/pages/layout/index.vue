@@ -416,7 +416,6 @@ const options = [
         </div>
       </div>
     </header>
-    <div class="ocupier"></div>
     <div class="content">
       <router-view></router-view>
     </div>
@@ -463,16 +462,15 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+$header-height: 32px;
 .layout-page {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   .layout-header {
-    height: 24px;
+    height: $header-height;
     width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+    z-index: 1;
     border-bottom: 1px solid #eee;
     box-shadow: 0 1px 10px #eee;
     background-color: #fff;
@@ -503,11 +501,9 @@ export default {
       -webkit-app-region: no-drag;
     }
   }
-  .ocupier {
-    height: 24px;
-  }
   .content {
-    height: calc(100vw - 24px);
+    height: calc(100vh - #{$header-height});
+    overflow: auto;
   }
 }
 

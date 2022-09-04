@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { readConfigFile } from '@/renderer'
-import { changeTheme } from '@/utils/changetheme'
+import MdEditor from '@/components/MdEditor/index.vue'
 
 const themes = [
   'arknights',
@@ -101,29 +100,31 @@ const highlights = [
   'xt256',
 ]
 
-const text = ref('')
-const handleChange = (e: string) => {
-  text.value = e
+const text = ref(
+  '## this is a text1\n## this is a text2\n## this is a text3\n## this is a text4\n## this is a text\n## this is a text\n## this is a text\n```js\nconst name = "aaa"\n```'
+)
+const handleChange = (e: any) => {
+  text.value = e.value
 }
 
 const theme = ref('')
 const highlight = ref('')
 
-onMounted(() => {
-  readConfigFile('system.json').then((res: any) => {
-    theme.value = res.editor.theme
-    highlight.value = res.editor.highlight
-  })
-})
+// onMounted(() => {
+//   readConfigFile('system.json').then((res: any) => {
+//     theme.value = res.editor.theme
+//     highlight.value = res.editor.highlight
+//   })
+// })
 
 const onHighlightChanged = (val: string) => {
   highlight.value = val
-  changeTheme(val, true)
+  // changeTheme(val, true)
 }
 
 const onThemeChanged = (val: string) => {
   theme.value = val
-  changeTheme(val)
+  // changeTheme(val)
 }
 </script>
 
@@ -152,7 +153,12 @@ const onThemeChanged = (val: string) => {
     </el-select>
   </div>
   <div>
-    <md-editor v-model:value="text" @change="handleChange"></md-editor>
+    <!-- <md-editor v-model:value="text" @change="handleChange"></md-editor> -->
+    <MdEditor
+      v-model:value="text"
+      mode="split"
+      @change="handleChange"
+    ></MdEditor>
   </div>
 </template>
 
