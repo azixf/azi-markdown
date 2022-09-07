@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "@vitejs/plugin-vue": "^3.0.1",
     "azi-utils": "^0.0.2",
-    "chalk": "4.0.0",
+    "chalk": "5.0.0",
     "codemirror-ssr": "^0.65.0",
     "commitizen": "4.2.4",
     "commitlint": "17.0.3",

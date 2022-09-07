@@ -1,7 +1,5 @@
-module.exports = (name) => {
-  return `<script setup lang='ts'></script>
-  
-  <template>
+export default function (name) {
+  return `<template>
   <h1>${name}</h1>
 </template>
 
@@ -11,7 +9,7 @@ module.exports = (name) => {
   }
 </script>
 
-
+<script setup lang='ts'></script>
 
 <style lang='scss' scoped></style>
 `

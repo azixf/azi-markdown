@@ -8,7 +8,7 @@ import remarkBreaks from 'remark-breaks'
 export default function breaks(): AzimdPlugin {
   return {
     remark: (processor) => {
-      devLog('remark-breaks plugin is successfully installed !!!')
+      devLog('remark-breaks plugin is active !!!')
       return processor.use(remarkBreaks)
     },
   }

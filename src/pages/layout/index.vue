@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Minus, Close, FullScreen } from '@element-plus/icons-vue'
 import { windowOperate, readConfigFile, writeConfigFile } from '@/renderer'
+import { insertDom as vInsertDom, iconList } from './index'
 
 const dialogVisible = ref(false)
 const closeType = ref('')
@@ -322,6 +323,29 @@ const options = [
   <div class="layout-page">
     <header class="layout-header flex align-center justify-between">
       <div class="header-right flex align-center">
+        <template v-for="item in iconList">
+          <el-tooltip effect="light" pure>
+            <div>{{ item.title }}</div>
+            <template #content>
+              <el-cascader-panel
+                :options="item.options"
+                :border="false"
+                expand-trigger="hover"
+              >
+                <template #default="{ data }">
+                  <div clasa="flex align-center" @click="data.click">
+                    <span
+                      v-if="data.icon"
+                      v-insert-dom="data.icon"
+                      class="p-r-8"
+                    ></span>
+                    <span>{{ data.label }}</span>
+                  </div>
+                </template>
+              </el-cascader-panel>
+            </template>
+          </el-tooltip>
+        </template>
         <el-popover placement="bottom" :width="180" trigger="hover">
           <template #reference>
             <el-button text size="small">文件</el-button>
@@ -380,7 +404,10 @@ const options = [
             <div class="pop-item divider"></div>
             <div class="pop-item">关于</div>
           </div> -->
-          <el-cascader-panel :options="options"></el-cascader-panel>
+          <el-cascader-panel
+            :options="options"
+            expand-trigger="hover"
+          ></el-cascader-panel>
         </el-popover>
       </div>
       <div class="header-left flex align-center">

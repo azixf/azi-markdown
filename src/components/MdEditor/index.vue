@@ -19,7 +19,15 @@ import {
   handleImageUpload,
 } from './editor'
 
-import remarkBreaks from './plugins/remark-breaks'
+import remarkBreaks from './plugins/breaks'
+import remarkFrontmatter from './plugins/frontmatter'
+import highlight from './plugins/highlight'
+import mediumZoom from './plugins/medium-zoom'
+import math from './plugins/math'
+import gfm from './plugins/gfm'
+import gemoji from './plugins/gemoji'
+import copyCode from './plugins/copycode'
+import { ElMessage } from 'element-plus'
 
 interface PropsType {
   value: Props['value']
@@ -50,7 +58,24 @@ const props = withDefaults(defineProps<PropsType>(), {
 })
 
 const plugins = computed(() => {
-  return [remarkBreaks(), ...(props.plugins ?? [])]
+  return [
+    remarkBreaks(),
+    remarkFrontmatter(),
+    highlight(),
+    gemoji(),
+    math(),
+    gfm(),
+    mediumZoom(),
+    copyCode({
+      copySuccess: () => {
+        ElMessage.success('复制成功！')
+      },
+      copyError: () => {
+        ElMessage.error('复制失败！')
+      },
+    }),
+    ...(props.plugins ?? []),
+  ]
 })
 
 const emit = defineEmits<{

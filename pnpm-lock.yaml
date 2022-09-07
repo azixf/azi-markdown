@@ -12,7 +12,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.36.1
   '@vitejs/plugin-vue': ^3.0.1
   azi-utils: ^0.0.2
-  chalk: 4.0.0
+  chalk: 5.0.0
   codemirror-ssr: ^0.65.0
   commitizen: 4.2.4
   commitlint: 17.0.3
@@ -80,7 +80,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.36.1_yqf6kl63nyoq5megxukfnom5rm
   '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.38
   azi-utils: 0.0.2
-  chalk: 4.0.0
+  chalk: 5.0.0
   codemirror-ssr: 0.65.0_@types+codemirror@5.60.5
   commitizen: 4.2.4
   commitlint: 17.0.3
@@ -2220,20 +2220,17 @@ packages:
       supports-color: 5.5.0
     dev: true
 
-  /chalk/4.0.0:
-    resolution: {integrity: sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==}
-    engines: {node: '>=10'}
-    dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
-    dev: true
-
   /chalk/4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+    dev: true
+
+  /chalk/5.0.0:
+    resolution: {integrity: sha512-/duVOqst+luxCQRKEo4bNxinsOQtMP80ZYm7mMqzuh5PociNL0PvmHFvREJ9ueYL2TxlHjBcmLCdmocx9Vg+IQ==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: true
 
   /character-entities-html4/2.1.0:
